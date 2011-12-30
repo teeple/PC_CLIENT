@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ExtTop - Desktop Sample App</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/application.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/desktop.css" />
+
+    <script type="text/javascript" src="lib/extjs/ext-all-debug-w-comments.js"></script>
+
+
+  	<script type="text/javascript">
+
+  		Ext.Loader.setConfig({enabled:true});
+
+        Ext.Loader.setPath({
+            'Ext.ux.desktop': './lib/js/',
+            'ProductCatalog': './app/',
+            'ProductCatalog.Login': './app/login',
+            'ProductCatalog.Designer': './app/designer'
+        });
+
+        Ext.require('ProductCatalog.App');
+
+        var productCatalog;
+
+        Ext.onReady(function () {
+        	Ext.application({
+                name: 'ProductCatalog',
+
+                controllers: [
+                    //login
+                    'ProductCatalog.Login.controller.LoginWindow',
+
+                    //designer
+                    'ProductCatalog.Designer.controller.MainPanel',
+                    'ProductCatalog.Designer.controller.TabPanel',
+                    'ProductCatalog.Designer.controller.TabPanel_Product',
+                    'ProductCatalog.Designer.controller.ToolBar',
+                    'ProductCatalog.Designer.controller.ToolBox',
+                    'ProductCatalog.Designer.controller.ToolBox_Product',
+                ],
+
+//                models:[
+//				    'ProductCatalog.Designer.model.Product'
+//               ],
+
+                stores:[
+                    //designer
+                    'ProductCatalog.Designer.store.TabPanel_Product',
+                    'ProductCatalog.Designer.store.ToolBox_Product',
+                ],
+
+                launch: function() {
+                	productCatalog = new ProductCatalog.App();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <a href="http://www.uangel.com" target="_blank" alt="Powered by UANGEL"
+       id="poweredby"><div></div></a>
+
+</body>
+</html>
+
