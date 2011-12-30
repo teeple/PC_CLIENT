@@ -31,7 +31,7 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
                 {
                     xtype: 'fieldset',
                     height: 377,
-                    title: 'My Fields',
+                    title: 'Detail',
                     flex: 1,
                     margin: '3px'
                 }

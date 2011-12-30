@@ -4,7 +4,8 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 	init: function() {
 		this.control({
 			'#TabPanel_Product > treepanel': {
-				readproduct: this.readproduct
+				readproduct: this.readproduct,
+				itemdblclick: this.showDetailInfo
 			}
 		});
 	},
@@ -46,6 +47,16 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 				    expanded: true,
 				});
 				var root = treeStore.getRootNode();
+
+				//set children for prd_attribute
+				var folder_attribute = null;
+				folder_attribute = root.appendChild({
+					text:'Attribute',
+					expanded: true,
+					leaf: false,
+					id: 'Attribute_' + prd_attribute.id,
+					prd_attribute: prd_attribute
+				});
 
 				//set children for prd_subscriptions
 				var folder_subscriptions = null;
@@ -216,5 +227,16 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 				mainPanel.mask.hide();
 			}
 		});
+	},
+
+	showDetailInfo: function(dataview, record, item, index, e){
+//		console.log(dataview, record, item, index, e);
+		var id = record.data.id;
+
+		if(id.indexOf('Attribute_')==0){
+			//design attribute detail information
+		}else{
+
+		}
 	}
 });
