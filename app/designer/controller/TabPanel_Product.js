@@ -44,8 +44,6 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 				treeStore.setRootNode({
 				    text: product.name,
 				    expanded: true,
-				    //set prd_attribute
-				    prd_attribute:prd_attribute
 				});
 				var root = treeStore.getRootNode();
 
@@ -58,16 +56,17 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							text:'Subscriptions',
 							expanded: true,
 							leaf: false,
-							id: newItem.id,
+							id: 'Subscriptions_' + newItem.id,
 							prd_subscriptions: newItem
 						});
 					}else{
 						var parent = null;
-						if(folder_subscriptions.data.id == newItem.parent_id){
+						if(folder_subscriptions.data.id == 'Subscriptions_' + newItem.parent_id){
 							parent = folder_subscriptions;
 						}else{
-							parent = folder_subscriptions.findChild('id',newItem.parent_id,true);
+							parent = folder_subscriptions.findChild('id','Subscriptions_' + newItem.parent_id,true);
 						}
+
 						if(parent != null){
 //							parent.leaf = false;
 							parent.appendChild({
@@ -80,7 +79,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 										:(newItem.condition_type + ': ' + newItem.condition_name),
 //								leaf: true,
 								expanded: true,
-								id: newItem.id,
+								id: 'Subscriptions_' + newItem.id,
 								prd_subscriptions: newItem,
 							});
 						}
@@ -96,15 +95,15 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							text:'Tariffs',
 							expanded: true,
 							leaf: false,
-							id: newItem.id,
+							id: 'Tariffs_' + newItem.id,
 							prd_tariffs: newItem
 						});
 					}else{
 						var parent = null;
-						if(folder_tariffs.data.id == newItem.parent_id){
+						if(folder_tariffs.data.id == 'Tariffs_' + newItem.parent_id){
 							parent = folder_tariffs;
 						}else{
-							parent = folder_tariffs.findChild('id',newItem.parent_id,true);
+							parent = folder_tariffs.findChild('id','Tariffs_' + newItem.parent_id,true);
 						}
 						if(parent != null){
 							parent.appendChild({
@@ -116,7 +115,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 												:(newItem.balance_name)))
 										:(newItem.condition_type + ': ' + newItem.condition_name),
 								expanded: true,
-								id: newItem.id,
+								id: 'Tariffs_' + newItem.id,
 								prd_tariffs: newItem,
 							});
 						}
@@ -132,21 +131,21 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							text:'Balances',
 							expanded: true,
 							leaf: false,
-							id: newItem.id,
+							id: 'Balances_' + newItem.id,
 							prd_balances: newItem
 						});
 					}else{
 						var parent = null;
-						if(folder_balances.data.id == newItem.parent_id){
+						if(folder_balances.data.id == 'Balances_' + newItem.parent_id){
 							parent = folder_balances;
 						}else{
-							parent = folder_balances.findChild('id',newItem.parent_id,true);
+							parent = folder_balances.findChild('id','Balances_' + newItem.parent_id,true);
 						}
 						if(parent != null){
 							parent.appendChild({
 								text: newItem.name,
 								expanded: true,
-								id: newItem.id,
+								id: 'Balances_' + newItem.id,
 								prd_balances: newItem,
 								//prd_balance_conditions 는 어떻게 처리???
 							});
@@ -163,15 +162,15 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							text:'Thresholds',
 							expanded: true,
 							leaf: false,
-							id: newItem.id,
+							id: 'Thresholds_' + newItem.id,
 							prd_thresholds: newItem
 						});
 					}else{
 						var parent = null;
-						if(folder_thresholds.data.id == newItem.parent_id){
+						if(folder_thresholds.data.id == 'Thresholds_' + newItem.parent_id){
 							parent = folder_thresholds;
 						}else{
-							parent = folder_thresholds.findChild('id',newItem.parent_id,true);
+							parent = folder_thresholds.findChild('id','Thresholds_' + newItem.parent_id,true);
 						}
 						if(parent != null){
 							parent.appendChild({
@@ -183,7 +182,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 												:(newItem.balance_name)))
 										:(newItem.condition_type + ': ' + newItem.condition_name),
 								expanded: true,
-								id: newItem.id,
+								id: 'Thresholds_' + newItem.id,
 								prd_thresholds: newItem,
 							});
 						}
@@ -196,6 +195,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 					text:'VAS',
 					expanded: true,
 					leaf: false,
+					id:'VAS_'
 				});
 				for(var i=0;i<prd_additional_services.length;i++){
 					var parent = folder_additional_services;
@@ -203,7 +203,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 					parent.appendChild({
 						text:newItem.name,
 						expanded: true,
-						id: newItem.id,
+						id: 'VAS_' + newItem.id,
 						prd_additional_services: newItem,
 					});
 				}
