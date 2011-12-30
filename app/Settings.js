@@ -154,7 +154,7 @@ Ext.define('ProductCatalog.Settings', {
         var me = this;
 
         if (record.data.img) {
-            me.selected = 'wallpapers/' + record.data.img;
+            me.selected = 'resources/wallpapers/' + record.data.img;
         } else {
             me.selected = Ext.BLANK_IMAGE_URL;
         }
