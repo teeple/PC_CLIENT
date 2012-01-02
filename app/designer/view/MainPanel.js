@@ -8,8 +8,7 @@ Ext.define('ProductCatalog.Designer.view.MainPanel', {
     ],
 
     id:'MainPanel',
-    height: 836,
-    width: 1396,
+
     activeItem: 0,
     layout: {
         type: 'border'

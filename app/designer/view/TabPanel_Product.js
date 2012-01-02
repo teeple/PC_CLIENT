@@ -4,6 +4,10 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
     id:'TabPanel_Product',
     title: 'Product',
 
+    requires: [
+        'ProductCatalog.Designer.view.TabPanel_Product_Attribute'
+    ],
+
     layout: {
     	align: 'stretch',
     	type: 'hbox'
@@ -20,7 +24,7 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
                     useArrows: true,
                     title: '',
                     titleCollapse: true,
-                    flex: 2,
+                    flex: 6,
                     region: 'center',
                     storeId: 'ProductCatalog.Designer.store.TabPanel_Product',
                     viewConfig: {
@@ -29,10 +33,12 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
                     margin: '3px'
                 },
                 {
-                    xtype: 'fieldset',
+                	xtype: 'panel',
                     height: 377,
-                    title: 'Detail',
-                    flex: 1,
+                    flex: 4,
+                    layout: {
+                        type: 'fit',
+                    },
                     margin: '3px'
                 }
             ]

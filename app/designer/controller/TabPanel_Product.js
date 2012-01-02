@@ -68,7 +68,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							expanded: true,
 							leaf: false,
 							id: 'Subscriptions_' + newItem.id,
-							prd_subscriptions: newItem
+							prd_component: newItem
 						});
 					}else{
 						var parent = null;
@@ -91,7 +91,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 //								leaf: true,
 								expanded: true,
 								id: 'Subscriptions_' + newItem.id,
-								prd_subscriptions: newItem,
+								prd_component: newItem,
 							});
 						}
 					}
@@ -107,7 +107,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							expanded: true,
 							leaf: false,
 							id: 'Tariffs_' + newItem.id,
-							prd_tariffs: newItem
+							prd_component: newItem
 						});
 					}else{
 						var parent = null;
@@ -127,7 +127,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 										:(newItem.condition_type + ': ' + newItem.condition_name),
 								expanded: true,
 								id: 'Tariffs_' + newItem.id,
-								prd_tariffs: newItem,
+								prd_component: newItem,
 							});
 						}
 					}
@@ -143,7 +143,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							expanded: true,
 							leaf: false,
 							id: 'Balances_' + newItem.id,
-							prd_balances: newItem
+							prd_component: newItem
 						});
 					}else{
 						var parent = null;
@@ -157,7 +157,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 								text: newItem.name,
 								expanded: true,
 								id: 'Balances_' + newItem.id,
-								prd_balances: newItem,
+								prd_component: newItem,
 								//prd_balance_conditions 는 어떻게 처리???
 							});
 						}
@@ -174,7 +174,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 							expanded: true,
 							leaf: false,
 							id: 'Thresholds_' + newItem.id,
-							prd_thresholds: newItem
+							prd_component: newItem
 						});
 					}else{
 						var parent = null;
@@ -194,7 +194,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 										:(newItem.condition_type + ': ' + newItem.condition_name),
 								expanded: true,
 								id: 'Thresholds_' + newItem.id,
-								prd_thresholds: newItem,
+								prd_component: newItem,
 							});
 						}
 					}
@@ -235,7 +235,20 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 
 		if(id.indexOf('Attribute_')==0){
 			//design attribute detail information
+			var detail = Ext.ComponentQuery.query('#TabPanel_Product > panel')[1];
+
+			detail.removeAll();
+
+			var detail_attribute = new ProductCatalog.Designer.view.TabPanel_Product_Attribute();
+			detail_attribute.mapper(record);
+
+			detail.add(detail_attribute);
+			console.log(detail_attribute);
+			detail.doLayout();
+		}else if(id.indexOf('VAS_')==0){
+
 		}else{
+			console.log(record.data.prd_component);
 
 		}
 	}

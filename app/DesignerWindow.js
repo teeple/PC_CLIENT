@@ -28,7 +28,7 @@ Ext.define('ProductCatalog.DesignerWindow', {
             win = desktop.createWindow({
                 id: 'designer-win',
                 title: 'Product Designer',
-                width: 800,
+                width: 1024,
                 height: 500,
 //                iconCls: 'accordion',
                 animCollapse: false,
