@@ -19,8 +19,8 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 
 		//masking main panel
 		var mainPanel = Ext.ComponentQuery.query('#MainPanel')[0];
-		mainPanel.mask.bindStore(treeStore);
 		mainPanel.mask.show();
+		mainPanel.mask.bindStore(treeStore);
 
 		//read product info
 		Ext.Ajax.request({
@@ -229,27 +229,81 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 		});
 	},
 
+
+
 	showDetailInfo: function(dataview, record, item, index, e){
 //		console.log(dataview, record, item, index, e);
 		var id = record.data.id;
 
+		var detail_panel = Ext.ComponentQuery.query('#TabPanel_Product > panel')[1];
+
 		if(id.indexOf('Attribute_')==0){
 			//design attribute detail information
-			var detail = Ext.ComponentQuery.query('#TabPanel_Product > panel')[1];
-
-			detail.removeAll();
+			detail_panel.removeAll();
 
 			var detail_attribute = new ProductCatalog.Designer.view.TabPanel_Product_Attribute();
 			detail_attribute.mapper(record);
 
-			detail.add(detail_attribute);
-			console.log(detail_attribute);
-			detail.doLayout();
+			detail_panel.add(detail_attribute);
+
+			detail_panel.doLayout();
 		}else if(id.indexOf('VAS_')==0){
 
 		}else{
-			console.log(record.data.prd_component);
+			var node = record.data.prd_component;
 
+			var json_uri = {
+				action_deducts: '/action_deducts/',
+				action_allows: '/action_allows/',
+				action_discounts: '/action_discounts/',
+				balance: '/balances/',
+				condition: '/conditions/'
+			};
+
+			if( node.action_id != null ) {
+				switch(node.action_type){
+				case 'Deduct':
+					request_uri = json_uri['action_deducts'] + node.action_id + '.json';
+					break;
+				case 'Allow':
+					request_uri = json_uri['action_allows'] + node.action_id + '.json';
+					break;
+				case 'Discount':
+					request_uri = json_uri['action_discounts'] + node.action_id + '.json';
+					break;
+				}
+			} else if( node.condition_id != null ) {
+				request_uri = json_uri['condition'] + node.condition_id + '.json';
+			} else if ( node.balance_id != null ) {
+				request_uri = json_uri['balance'] + node.balance_id + '.json';
+			}
+
+			var detail_info = null;
+
+			//read product info
+			Ext.Ajax.request({
+				url : request_uri,
+				method : 'GET',
+				params : null,
+				success : function(response){
+					var jsonData = Ext.JSON.decode(response.responseText);
+					console.log(jsonData);
+
+					detail_panel.removeAll();
+
+					var detail_actionDeduct = new ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct();
+					detail_actionDeduct.mapper(jsonData);
+
+					detail_panel.add(detail_actionDeduct);
+
+					detail_panel.doLayout();
+
+				},
+				failure: function(response){
+					Ext.MessageBox.alert('Failed..');
+//					mainPanel.mask.hide();
+				}
+			});
 		}
 	}
 });

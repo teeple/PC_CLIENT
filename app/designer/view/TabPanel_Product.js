@@ -5,7 +5,8 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
     title: 'Product',
 
     requires: [
-        'ProductCatalog.Designer.view.TabPanel_Product_Attribute'
+        'ProductCatalog.Designer.view.TabPanel_Product_Attribute',
+        'ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct'
     ],
 
     layout: {
