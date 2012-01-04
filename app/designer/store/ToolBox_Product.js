@@ -11,14 +11,14 @@ Ext.define('ProductCatalog.Designer.store.ToolBox_Product', {
         me.callParent([Ext.apply({
             autoLoad: true,
             storeId: 'ProductCatalog.Designer.store.ToolBox_Product',
+//            pageSize: 3,
             proxy: {
                 type: 'rest',
                 url: '/products.json',
+//                url: '/realjangsun/app/designer/store/test.json',
                 reader: {
                     type: 'json',
-//                    read: function(response) {
-//                        console.log(response);
-//                    }
+//                    totalProperty: 'total'
                 }
             },
             model: 'ProductCatalog.Designer.model.ToolBox_Product'
