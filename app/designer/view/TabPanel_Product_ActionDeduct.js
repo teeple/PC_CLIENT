@@ -37,28 +37,8 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct', {
                     height: 250,
                     width: 400,
                     title: 'My Grid Panel',
-//                    store: 'ProductCatalog.Designer.store.TabPanel_Product_ActionDeduct',
+                    store: 'ProductCatalog.Designer.store.TabPanel_Product_ActionDeduct',
                     columns: [
-//                        {
-//                            xtype: 'gridcolumn',
-//                            dataIndex: 'string',
-//                            text: 'String'
-//                        },
-//                        {
-//                            xtype: 'numbercolumn',
-//                            dataIndex: 'number',
-//                            text: 'Number'
-//                        },
-//                        {
-//                            xtype: 'datecolumn',
-//                            dataIndex: 'date',
-//                            text: 'Date'
-//                        },
-//                        {
-//                            xtype: 'booleancolumn',
-//                            dataIndex: 'bool',
-//                            text: 'Boolean'
-//                        }
                     ],
                     viewConfig: {
 
@@ -83,25 +63,30 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct', {
         var headers = Ext.Object.getValues(record.header_deducts);
 
         for(var i=0; i < headers.length; i++) {
-
-    		console.log(headers[i]);
-
     		var element = {
     			xtype: 'gridcolumn',
     			dataIndex: headers[i].toLowerCase(),
     			text: headers[i]
     		};
-
     		columns[i] = element;
     	}
 
         var gridComponent = Ext.ComponentQuery.query('#TabPanel_Product_ActionDeduct gridpanel')[0];
-//        gridComponent.columns = columns;
+        gridComponent.headerCt.removeAll();
+        gridComponent.headerCt.add(columns);
+        gridComponent.getView().refresh();
 
-//    	for(var i=0; i < me.items.length; i++) {
-//    		element = me.items.items[i];
-//    		console.log(element);
-//    		element.setValue(record['data']['prd_attribute'][element.id]);
-//    	}
+        var store = gridComponent.store;
+        for(var i=0;i<record.deducts.length;i++){
+        	var row = new ProductCatalog.Designer.model.TabPanel_Product_ActionDeduct();
+        	row.data.currency = record.deducts[i].currency;
+        	row.data.rate     = record.deducts[i].rate;
+        	row.data.unit     = record.deducts[i].unit;
+        	row.data.param    = record.deducts[i].unit_type;
+        	row.data.end      = record.deducts[i].upto_end;
+        	row.data.start    = record.deducts[i].upto_start;
+        	row.data.type     = record.deducts[i].upto_type;
+        	store.add(row);
+        }
     }
 });

@@ -260,22 +260,31 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 				condition: '/conditions/'
 			};
 
+			var componentType = null;
+
 			if( node.action_id != null ) {
+				componentType = 'action_';
+
 				switch(node.action_type){
 				case 'Deduct':
 					request_uri = json_uri['action_deducts'] + node.action_id + '.json';
+					componentType += 'deduct';
 					break;
 				case 'Allow':
 					request_uri = json_uri['action_allows'] + node.action_id + '.json';
+					componentType += 'allow';
 					break;
 				case 'Discount':
 					request_uri = json_uri['action_discounts'] + node.action_id + '.json';
+					componentType += 'discount';
 					break;
 				}
 			} else if( node.condition_id != null ) {
 				request_uri = json_uri['condition'] + node.condition_id + '.json';
+				componentType = 'condition';
 			} else if ( node.balance_id != null ) {
 				request_uri = json_uri['balance'] + node.balance_id + '.json';
+				componentType = 'balance';
 			}
 
 			var detail_info = null;
@@ -288,13 +297,13 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 				success : function(response){
 					var jsonData = Ext.JSON.decode(response.responseText);
 					console.log(jsonData);
-
 					detail_panel.removeAll();
 
-					var detail_actionDeduct = new ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct();
-					detail_actionDeduct.mapper(jsonData);
-
-					detail_panel.add(detail_actionDeduct);
+					if(componentType == 'action_deduct'){
+						var detail_actionDeduct = new ProductCatalog.Designer.view.TabPanel_Product_ActionDeduct();
+						detail_actionDeduct.mapper(jsonData);
+						detail_panel.add(detail_actionDeduct);
+					}
 
 					detail_panel.doLayout();
 
