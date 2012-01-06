@@ -8,7 +8,7 @@ Ext.define('ProductCatalog.Designer.view.ToolBox_Product', {
 
     collapsed: false,
     title: 'Product',
-
+    layout: 'fit',
     initComponent: function() {
         var me = this;
 
@@ -21,7 +21,6 @@ Ext.define('ProductCatalog.Designer.view.ToolBox_Product', {
 	                    forceFit: true,
 	                    store: 'ProductCatalog.Designer.store.ToolBox_Product',
 	                    viewConfig: {
-	                    	autoScroll: true,
 	                        plugins: {
 	                            ddGroup: 'ddGroup',
 	                            ptype: 'gridviewdragdrop',
