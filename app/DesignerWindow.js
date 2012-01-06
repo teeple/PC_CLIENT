@@ -29,7 +29,7 @@ Ext.define('ProductCatalog.DesignerWindow', {
                 id: 'designer-win',
                 title: 'Product Designer',
                 width: 1024,
-                height: 500,
+                height: 800,
 //                iconCls: 'accordion',
                 animCollapse: false,
                 constrainHeader: true,

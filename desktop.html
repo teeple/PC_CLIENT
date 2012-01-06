@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" type="text/css" href="resources/css/application.css" />
     <link rel="stylesheet" type="text/css" href="resources/css/desktop.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/ux/statusbar/css/statusbar.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/ux/LiveSearchGridPanel.css" />
 
     <script type="text/javascript" src="lib/extjs/ext-all-debug-w-comments.js"></script>
 
@@ -15,7 +17,8 @@
   		Ext.Loader.setConfig({enabled:true});
 
         Ext.Loader.setPath({
-            'Ext.ux.desktop': './lib/js/',
+        	'Ext.ux': './lib/js/ux',
+            'Ext.ux.desktop': './lib/js/desktop',
             'ProductCatalog': './app/',
             'ProductCatalog.Login': './app/login',
             'ProductCatalog.Designer': './app/designer'
