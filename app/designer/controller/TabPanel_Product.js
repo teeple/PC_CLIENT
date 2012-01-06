@@ -229,8 +229,6 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 		});
 	},
 
-
-
 	showDetailInfo: function(dataview, record, item, index, e){
 //		console.log(dataview, record, item, index, e);
 		var id = record.data.id;
