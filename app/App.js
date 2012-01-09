@@ -136,8 +136,10 @@ Ext.define('ProductCatalog.App', {
 
         return Ext.apply(ret, {
             quickStart: [
-                { name: 'Accordion Window', iconCls: 'accordion', module: 'acc-win' },
-                { name: 'Grid Window', iconCls: 'icon-grid', module: 'grid-win' }
+//                { name: 'Accordion Window', iconCls: 'accordion', module: 'acc-win' },
+//                { name: 'Grid Window', iconCls: 'icon-grid', module: 'grid-win' }
+				{ name: 'Product Designer', iconCls: 'designer', module: 'designer-win' },
+                { name: 'Product Validator', iconCls: 'validator', module: 'validator-win' }
             ],
             trayItems: [
                 { xtype: 'trayclock', flex: 1 }
