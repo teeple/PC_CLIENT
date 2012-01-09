@@ -20,23 +20,41 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'treepanel',
-                    frameHeader: false,
-                    useArrows: true,
-                    title: '',
-                    titleCollapse: true,
+                    xtype: 'panel',
                     flex: 6,
                     region: 'center',
-                    storeId: 'ProductCatalog.Designer.store.TabPanel_Product',
-                    viewConfig: {
+                    margin: '3px',
+                    layout: 'fit',
+                    items: [
+                        {
+                            xtype: 'treepanel',
+                            frameHeader: false,
+                            useArrows: true,
+                            title: '',
+                            titleCollapse: true,
 
-                    },
-                    margin: '3px'
+                            storeId: 'ProductCatalog.Designer.store.TabPanel_Product',
+                            viewConfig: {
+
+                            },
+                        },
+                    ],
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                               dock: 'top',
+                               items: [
+                               {
+                    	   			xtype: 'button',
+                    	   			text: 'Validate It!'
+                               }
+                               ]
+                        }
+                   ]
                 },
                 {
                 	xtype: 'panel',
-                    height: 377,
-                    flex: 4,
+                	flex: 4,
                     layout: {
                         type: 'fit',
                     },

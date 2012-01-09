@@ -6,8 +6,8 @@ Ext.define('ProductCatalog.Validator.view.MainPanel', {
 
     id:'ValidatorMainPanel',
 
-    title: 'Product Validator',
-
+//    title: 'Product Validator',
+    titleCollapse: true,
     initComponent: function() {
         var me = this;
 

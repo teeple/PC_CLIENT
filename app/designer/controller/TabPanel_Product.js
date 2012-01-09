@@ -3,7 +3,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 
 	init: function() {
 		this.control({
-			'#TabPanel_Product > treepanel': {
+			'#TabPanel_Product treepanel': {
 				readproduct: this.readproduct,
 				itemdblclick: this.showDetailInfo
 			}
@@ -12,7 +12,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 
 	readproduct: function(product){
 		//reset tree store
-		var treeStore = Ext.ComponentQuery.query('#TabPanel_Product > treepanel')[0].store;
+		var treeStore = Ext.ComponentQuery.query('#TabPanel_Product treepanel')[0].store;
 		if(treeStore.tree.root != null){
 			treeStore.removeAll();
 		}

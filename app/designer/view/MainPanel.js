@@ -13,8 +13,8 @@ Ext.define('ProductCatalog.Designer.view.MainPanel', {
     layout: {
         type: 'border'
     },
-    title: 'Product Catalog',
-
+//    title: 'Product Catalog',
+    titleCollapse: true,
     initComponent: function() {
         var me = this;
 

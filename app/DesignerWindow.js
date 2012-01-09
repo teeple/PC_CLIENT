@@ -29,9 +29,10 @@ Ext.define('ProductCatalog.DesignerWindow', {
             win = desktop.createWindow({
                 id: 'designer-win',
                 title: 'Product Designer',
-                width: 1024,
-                height: 800,
+//                width: 1024,
+//                height: 800,
 //                iconCls: 'accordion',
+//                maximized: true,
                 animCollapse: false,
                 constrainHeader: true,
                 bodyBorder: true,
@@ -40,11 +41,20 @@ Ext.define('ProductCatalog.DesignerWindow', {
                         {
                         	xtype:'DesignerMainPanel'
                         }
-                ]
+                ],
+                listeners: {
+                    'activate': function() {
+                        Ext.getCmp('designer-win').maximize();
+                    },
+                    'afterlayout': function() {
+                        Ext.getCmp('designer-win').maximize();
+                    }
+                }
             });
         }
 
         win.show();
+
         return win;
     },
 

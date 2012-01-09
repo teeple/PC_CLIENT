@@ -14,7 +14,7 @@ Ext.define('ProductCatalog.Designer.controller.ToolBox_Product', {
 		var button = Ext.ComponentQuery.query('#ToolBar_Product_Button')[0];
 		button.fireEvent('click',button);
 
-		var treePanel = Ext.ComponentQuery.query('#TabPanel_Product > treepanel')[0];
+		var treePanel = Ext.ComponentQuery.query('#TabPanel_Product treepanel')[0];
 		treePanel.fireEvent('readproduct',{id:record.data.id,name:record.data.name});
 	}
 });
