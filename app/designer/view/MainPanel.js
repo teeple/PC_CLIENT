@@ -7,13 +7,13 @@ Ext.define('ProductCatalog.Designer.view.MainPanel', {
         'ProductCatalog.Designer.view.TabPanel'
     ],
 
-    id:'MainPanel',
+    id:'DesignerMainPanel',
 
     activeItem: 0,
     layout: {
         type: 'border'
     },
-    title: 'UANGEL Product Catalog',
+    title: 'Product Catalog',
 
     initComponent: function() {
         var me = this;

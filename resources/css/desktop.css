@@ -227,6 +227,10 @@
 	background-image: url(../images/icon_designer.png);
 }
 
+.validator-shortcut{
+	background-image: url(../images/icon_validator.png);
+}
+
 .notepad-shortcut {
     background-image: url(../images/notepadLarge.png);
     width: 46px;

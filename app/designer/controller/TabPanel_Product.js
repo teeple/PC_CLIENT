@@ -18,7 +18,7 @@ Ext.define('ProductCatalog.Designer.controller.TabPanel_Product', {
 		}
 
 		//masking main panel
-		var mainPanel = Ext.ComponentQuery.query('#MainPanel')[0];
+		var mainPanel = Ext.ComponentQuery.query('#DesignerMainPanel')[0];
 		mainPanel.mask.show();
 		mainPanel.mask.bindStore(treeStore);
 

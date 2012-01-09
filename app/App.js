@@ -42,7 +42,10 @@ Ext.define('ProductCatalog.App', {
         'ProductCatalog.Login.controller.LoginWindow',
 
         //designer
-        'ProductCatalog.DesignerWindow'
+        'ProductCatalog.DesignerWindow',
+
+        //validator
+        'ProductCatalog.ValidatorWindow',
     ],
 
     init: function() {
@@ -67,7 +70,8 @@ Ext.define('ProductCatalog.App', {
             new ProductCatalog.Notepad(),
             new ProductCatalog.BogusMenuModule(),
             new ProductCatalog.BogusModule(),
-            new ProductCatalog.DesignerWindow()
+            new ProductCatalog.DesignerWindow(),
+            new ProductCatalog.ValidatorWindow()
         ];
     },
 
@@ -88,7 +92,8 @@ Ext.define('ProductCatalog.App', {
                     { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
                     { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
                     { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
-                    { name: 'Product Designer', iconCls: 'designer-shortcut', module: 'designer-win'}
+                    { name: 'Product Designer', iconCls: 'designer-shortcut', module: 'designer-win'},
+                    { name: 'Product Validator', iconCls: 'validator-shortcut', module: 'validator-win'}
                 ]
             }),
 
