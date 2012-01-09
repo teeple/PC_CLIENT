@@ -10,6 +10,7 @@ Ext.define('ProductCatalog.ValidatorWindow', {
     init : function(){
         this.launcher = {
             text: 'Product Validator',
+            iconCls:'validator',
             handler : this.createWindow,
             scope: this
         };

@@ -276,7 +276,12 @@
 .settings {
     background-image: url( ../images/gears.gif ) !important;
 }
-
+.designer{
+	background-image: url( ../images/designer.png ) !important;
+}
+.validator{
+	background-image: url( ../images/validator.png ) !important;
+}
 
 .icon-grid {
     background-image:url( ../images/grid.png ) !important;

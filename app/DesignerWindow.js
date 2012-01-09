@@ -10,6 +10,7 @@ Ext.define('ProductCatalog.DesignerWindow', {
     init : function(){
         this.launcher = {
             text: 'Product Designer',
+            iconCls:'designer',
             handler : this.createWindow,
             scope: this
         };
