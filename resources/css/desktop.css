@@ -215,20 +215,20 @@
     background-image: url(../images/im48x48.png);
 }
 
-.cpu-shortcut {
-    background-image: url(../images/statusLarge.png);
-}
-
-.grid-shortcut {
-    background-image: url(../images/grid48x48.png);
-}
-
 .designer-shortcut{
 	background-image: url(../images/icon_designer.png);
 }
 
-.validator-shortcut{
-	background-image: url(../images/icon_validator.png);
+.promotion-shortcut{
+	background-image: url(../images/icon_promotion.png);
+}
+
+.relation-shortcut{
+	background-image: url(../images/icon_relation.png);
+}
+
+.lifecycle-shortcut{
+	background-image: url(../images/icon_lifecycle.png);
 }
 
 .notepad-shortcut {

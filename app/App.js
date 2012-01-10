@@ -27,25 +27,16 @@ Ext.define('ProductCatalog.App', {
 
         'Ext.ux.desktop.ShortcutModel',
 
-        'ProductCatalog.SystemStatus',
-        'ProductCatalog.VideoWindow',
-        'ProductCatalog.GridWindow',
-        'ProductCatalog.TabWindow',
         'ProductCatalog.AccordionWindow',
         'ProductCatalog.Notepad',
-        'ProductCatalog.BogusMenuModule',
-        'ProductCatalog.BogusModule',
-//        'MyDesktop.Blockalanche',
-        'ProductCatalog.Settings',
 
-     // Login window controller
         'ProductCatalog.Login.controller.LoginWindow',
 
-        //designer
         'ProductCatalog.DesignerWindow',
+        'ProductCatalog.PromotionWindow',
+        'ProductCatalog.RelationWindow',
+        'ProductCatalog.LifecycleWindow',
 
-        //validator
-        'ProductCatalog.ValidatorWindow',
     ],
 
     init: function() {
@@ -61,17 +52,14 @@ Ext.define('ProductCatalog.App', {
 
     getModules : function(){
         return [
-            new ProductCatalog.VideoWindow(),
-            //new MyDesktop.Blockalanche(),
-            new ProductCatalog.SystemStatus(),
-            new ProductCatalog.GridWindow(),
-            new ProductCatalog.TabWindow(),
+            new ProductCatalog.DesignerWindow(),
+            new ProductCatalog.PromotionWindow(),
+            new ProductCatalog.RelationWindow(),
+            new ProductCatalog.LifecycleWindow(),
+
             new ProductCatalog.AccordionWindow(),
             new ProductCatalog.Notepad(),
-            new ProductCatalog.BogusMenuModule(),
-            new ProductCatalog.BogusModule(),
-            new ProductCatalog.DesignerWindow(),
-            new ProductCatalog.ValidatorWindow()
+
         ];
     },
 
@@ -82,18 +70,18 @@ Ext.define('ProductCatalog.App', {
             //cls: 'ux-desktop-black',
 
             contextMenuItems: [
-                { text: 'Change Settings', handler: me.onSettings, scope: me }
+//                { text: 'Change Settings', handler: me.onSettings, scope: me }
             ],
 
             shortcuts: Ext.create('Ext.data.Store', {
                 model: 'Ext.ux.desktop.ShortcutModel',
                 data: [
-                    { name: 'Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
-                    { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
-                    { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
-                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
                     { name: 'Product Designer', iconCls: 'designer-shortcut', module: 'designer-win'},
-                    { name: 'Product Validator', iconCls: 'validator-shortcut', module: 'validator-win'}
+                    { name: 'Promotion Designer', iconCls: 'promotion-shortcut', module: 'promotion-win'},
+                    { name: 'Relation Manager', iconCls: 'relation-shortcut', module: 'relation-win'},
+                    { name: 'Lifecycle Manager', iconCls: 'lifecycle-shortcut', module: 'lifecycle-win'},
+                    { name: 'Member Manager', iconCls: 'accordion-shortcut', module: 'acc-win' },
+                    { name: 'Help', iconCls: 'notepad-shortcut', module: 'notepad' },
                 ]
             }),
 
@@ -107,19 +95,19 @@ Ext.define('ProductCatalog.App', {
         var me = this, ret = me.callParent();
 
         return Ext.apply(ret, {
-            title: 'Don Griffin',
+            title: 'Product Catalog',
             iconCls: 'user',
             height: 300,
             toolConfig: {
                 width: 100,
                 items: [
-                    {
-                        text:'Settings',
-                        iconCls:'settings',
-                        handler: me.onSettings,
-                        scope: me
-                    },
-                    '-',
+//                    {
+//                        text:'Settings',
+//                        iconCls:'settings',
+//                        handler: me.onSettings,
+//                        scope: me
+//                    },
+//                    '-',
                     {
                         text:'Logout',
                         iconCls:'logout',
@@ -136,8 +124,6 @@ Ext.define('ProductCatalog.App', {
 
         return Ext.apply(ret, {
             quickStart: [
-//                { name: 'Accordion Window', iconCls: 'accordion', module: 'acc-win' },
-//                { name: 'Grid Window', iconCls: 'icon-grid', module: 'grid-win' }
 				{ name: 'Product Designer', iconCls: 'designer', module: 'designer-win' },
                 { name: 'Product Validator', iconCls: 'validator', module: 'validator-win' }
             ],

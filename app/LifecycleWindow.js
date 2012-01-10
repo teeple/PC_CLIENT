@@ -1,16 +1,16 @@
-Ext.define('ProductCatalog.ValidatorWindow', {
+Ext.define('ProductCatalog.LifecycleWindow', {
     extend: 'Ext.ux.desktop.Module',
 
     requires: [
-        'ProductCatalog.Validator.view.MainPanel'
+        'ProductCatalog.Lifecycle.view.MainPanel'
     ],
 
-    id:'validator-win',
+    id:'lifecycle-win',
 
     init : function(){
         this.launcher = {
-            text: 'Product Validator',
-            iconCls:'validator',
+            text: 'Lifecycle Manager',
+            iconCls:'designer',
             handler : this.createWindow,
             scope: this
         };
@@ -19,13 +19,13 @@ Ext.define('ProductCatalog.ValidatorWindow', {
     createWindow : function(){
 
         var desktop = this.app.getDesktop();
-        var win = desktop.getWindow('validator-win');
+        var win = desktop.getWindow('lifecycle-win');
 
         if (!win) {
 
             win = desktop.createWindow({
-                id: 'validator-win',
-                title: 'Product Validator',
+                id: 'lifecycle-win',
+                title: 'Product Lifecycle',
                 width: 800,
                 height: 600,
 //                iconCls: 'accordion',
@@ -35,7 +35,7 @@ Ext.define('ProductCatalog.ValidatorWindow', {
                 layout:'fit',
                 items: [
                         {
-                        	xtype:'ValidatorMainPanel'
+                        	xtype:'LifecycleMainPanel'
                         }
                 ]
             });

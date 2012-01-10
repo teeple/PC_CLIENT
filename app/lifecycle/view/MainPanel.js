@@ -1,12 +1,12 @@
-Ext.define('ProductCatalog.Validator.view.MainPanel', {
+Ext.define('ProductCatalog.Lifecycle.view.MainPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.ValidatorMainPanel',
+    alias: 'widget.LifecycleMainPanel',
     requires: [
     ],
 
-    id:'ValidatorMainPanel',
+    id:'LifecycleMainPanel',
 
-//    title: 'Product Validator',
+//    title: 'Product LifecycleValidator',
     titleCollapse: true,
     initComponent: function() {
         var me = this;

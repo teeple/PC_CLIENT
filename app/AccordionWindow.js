@@ -33,7 +33,7 @@ Ext.define('ProductCatalog.AccordionWindow', {
 
     init : function(){
         this.launcher = {
-            text: 'Accordion Window',
+            text: 'Member Manager',
             iconCls:'accordion',
             handler : this.createWindow,
             scope: this

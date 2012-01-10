@@ -31,7 +31,7 @@ Ext.define('ProductCatalog.Notepad', {
 
     init : function(){
         this.launcher = {
-            text: 'Notepad',
+            text: 'Help',
             iconCls:'notepad',
             handler : this.createWindow,
             scope: this
