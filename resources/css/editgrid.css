@@ -1,0 +1,31 @@
+.icon-user {
+    background-image: url(../images/editgrid/user.png) !important;
+}
+
+.icon-user-add {
+    background-image: url(../images/editgrid/user_add.gif) !important;
+}
+
+.icon-save {
+    background-image: url(../images/editgrid/save.gif) !important;
+}
+
+.icon-reset {
+    background-image: url(../images/editgrid/stop.png) !important;
+}
+
+.icon-grid {
+    background-image: url(../images/editgrid/grid.png) !important;
+}
+
+.icon-add {
+    background-image: url(../images/editgrid/add.png) !important;
+}
+
+.icon-delete {
+    background-image: url(../images/editgrid/delete.png) !important;
+}
+
+.icon-validate {
+    background-image: url(../images/validator.png) !important;
+}

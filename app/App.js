@@ -27,7 +27,7 @@ Ext.define('ProductCatalog.App', {
 
         'Ext.ux.desktop.ShortcutModel',
 
-        'ProductCatalog.AccordionWindow',
+        'ProductCatalog.MemberWindow',
         'ProductCatalog.Notepad',
 
         'ProductCatalog.Login.controller.LoginWindow',
@@ -57,7 +57,7 @@ Ext.define('ProductCatalog.App', {
             new ProductCatalog.RelationWindow(),
             new ProductCatalog.LifecycleWindow(),
 
-            new ProductCatalog.AccordionWindow(),
+            new ProductCatalog.MemberWindow(),
             new ProductCatalog.Notepad(),
 
         ];
@@ -80,8 +80,8 @@ Ext.define('ProductCatalog.App', {
                     { name: 'Promotion Designer', iconCls: 'promotion-shortcut', module: 'promotion-win'},
                     { name: 'Relation Manager', iconCls: 'relation-shortcut', module: 'relation-win'},
                     { name: 'Lifecycle Manager', iconCls: 'lifecycle-shortcut', module: 'lifecycle-win'},
-                    { name: 'Member Manager', iconCls: 'accordion-shortcut', module: 'acc-win' },
-                    { name: 'Help', iconCls: 'notepad-shortcut', module: 'notepad' },
+                    { name: 'Member Manager', iconCls: 'accordion-shortcut', module: 'member-win' },
+                    { name: 'Guide', iconCls: 'notepad-shortcut', module: 'notepad' },
                 ]
             }),
 

@@ -46,7 +46,8 @@ Ext.define('ProductCatalog.Designer.view.TabPanel_Product', {
                                items: [
                                {
                     	   			xtype: 'button',
-                    	   			text: 'Validate It!'
+                    	   			text: 'Validate It!',
+                    	   			iconCls:'icon-validate'
                                }
                                ]
                         }

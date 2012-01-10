@@ -23,15 +23,15 @@ Ext.define('ProductCatalog.Notepad', {
     extend: 'Ext.ux.desktop.Module',
 
     requires: [
-        'Ext.form.field.HtmlEditor'
-        //'Ext.form.field.TextArea'
+        // 'Ext.form.field.HtmlEditor'
+        // Ext.form.field.TextArea'
     ],
 
     id:'notepad',
 
     init : function(){
         this.launcher = {
-            text: 'Help',
+            text: 'Guide',
             iconCls:'notepad',
             handler : this.createWindow,
             scope: this
@@ -59,15 +59,81 @@ Ext.define('ProductCatalog.Notepad', {
 
                 layout: 'fit',
                 items: [
+                {
+                    xtype: 'panel',
+                    height: 509,
+                    width: 687,
+                    layout: {
+                    align: 'stretch',
+                           type: 'hbox'
+                    },
+                    title: 'Guide',
+                        items: [
+                        {
+                            xtype: 'treepanel',
+                           title: 'My Tree Panel',
+                           flex: 2,
+                           viewConfig: {
+                           }
+                        },
+                        {
+                           xtype: 'panel',
+                           layout: {
+                                align: 'stretch',
+                                type: 'hbox'
+                           },
+                           title: 'My Panel',
+                           flex: 5,
+                           items: [
+                            {
+                                xtype: 'dataview',
+                                tpl: Ext.create('Ext.XTemplate', 
+                                   '<tpl for="."><div>Template</div></tpl>'
+                                   ),
+                                itemSelector: 'div',
+                                flex: 1
+                            }
+                           ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    layout: {
+                        align: 'stretch',
+                        type: 'hbox'
+                    },
+                    title: 'API',
+                    items: [
                     {
-                        xtype: 'htmleditor',
-                        //xtype: 'textarea',
-                        id: 'notepad-editor',
-                        value: [
-                            'Some <b>rich</b> <font color="red">text</font> goes <u>here</u><br>',
-                            'Give it a try!'
-                        ].join('')
-                    }
+                        xtype: 'treepanel',
+                        width: 269,
+                        title: 'My Tree Panel',
+                        flex: 2,
+                        viewConfig: {
+                        }
+                        },
+                        {
+                        xtype: 'panel',
+                        layout: {
+                            align: 'stretch',
+                            type: 'hbox'
+                        },
+                        title: 'My Panel',
+                        flex: 5,
+                        items: [
+                            {
+                            xtype: 'dataview',
+                            tpl: Ext.create('Ext.XTemplate', 
+                               '<tpl for="."><div>Template</div></tpl>'
+                            ),
+                            itemSelector: 'div',
+                            flex: 1
+                        }
+                       ]
+                       }
+                    ]
+                }
                 ]
             });
         }
