@@ -38,7 +38,7 @@ Ext.define('ProductCatalog.Relation.view.ToolBox_Product', {
                                 icon_image = '<img src=http://cdn1.iconfinder.com/data/icons/basicset/present_16.png> ' + value;
                         }
                         return icon_image;
-                    },
+                    }
                 },
                 {
                     xtype: 'gridcolumn',

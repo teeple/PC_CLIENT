@@ -16,7 +16,6 @@ Ext.define('ProductCatalog.Relation.view.ToolBox', {
 
     title: 'ToolBox',
     collapsible: true,
-
     collapseDirection: 'left',
 
     initComponent: function() {
@@ -27,15 +26,17 @@ Ext.define('ProductCatalog.Relation.view.ToolBox', {
                 {
                     xtype: 'Relation.ToolBox_Product'
                 },
-                {
-                    xtype: 'Relation.ToolBox_Relation_Hierarchy'
-                },
+                /*
                 {
                     xtype: 'Relation.ToolBox_Relation_Exclusive'
                 },
                 {
+                    xtype: 'Relation.ToolBox_Relation_Hierarchy'
+                },
+                {
                     xtype: 'Relation.ToolBox_Relation_Product_Promotion'
                 },
+                */
             ]
         });
 

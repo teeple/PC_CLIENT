@@ -8,15 +8,12 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
     ],
     id: 'RelationMainPanel',
 
-    activeItem: 0,
-
+    // activeItem: 0,
     layout: {
-        align: 'stretch',
         type: 'hbox'
     },
     // title: '',
     titleCollapse: true,
-
     initComponent: function() {
         var me = this;
 
@@ -24,12 +21,11 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
             items: [
                 {
                     xtype: 'Relation.ToolBox',
-                    flex: 1
+                    region: 'west'
                 },
                 {
-                    // xtype: 'Relation.SubPanel',
-                    xtype: 'panel',
-                    flex: 2
+                    xtype: 'Relation.SubPanel',
+                    region: 'center'
                 },
             ]
         });
@@ -37,3 +33,4 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
         me.callParent(arguments);
     }
 });
+

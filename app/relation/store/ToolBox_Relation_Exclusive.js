@@ -1,8 +1,8 @@
-Ext.define('ProductCatalog.Relation.store.ToolBox_Product', {
+Ext.define('ProductCatalog.Relation.store.ToolBox_Relation_Exclusive', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'ProductCatalog.Relation.model.ToolBox_Product',
+        'ProductCatalog.Relation.model.ToolBox_Relation_Exclusive',
     ],
 
     constructor: function(cfg) {
@@ -10,15 +10,15 @@ Ext.define('ProductCatalog.Relation.store.ToolBox_Product', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             autoLoad: true,
-            storeId: 'ProductCatalog.Relation.store.ToolBox_Product',
+            storeId: 'ProductCatalog.Relation.store.ToolBox_Relation_Exclusive',
             proxy: {
                 type: 'rest',
-                url: '/products.json',
+                url: '/relations.json',
                 reader: {
                     type: 'json',
                 }
             },
-            model: 'ProductCatalog.Relation.model.ToolBox_Product'
+            model: 'ProductCatalog.Relation.model.ToolBox_Relation_Exclusive'
         }, cfg)]);
     }
 });
