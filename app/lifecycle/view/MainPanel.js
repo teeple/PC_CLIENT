@@ -1,11 +1,15 @@
 Ext.define('ProductCatalog.Lifecycle.view.MainPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.LifecycleMainPanel',
+    alias: 'widget.Lifecycle.MainPanel',
     requires: [
+        'ProductCatalog.Lifecycle.view.ToolBox',
+        'ProductCatalog.Lifecycle.view.TabPanel'
     ],
 
-    id:'LifecycleMainPanel',
-
+    id:'Lifecycle.MainPanel',
+    layout: {
+        type: 'border'
+    },
 //    title: 'Product LifecycleValidator',
     titleCollapse: true,
     initComponent: function() {
@@ -14,7 +18,12 @@ Ext.define('ProductCatalog.Lifecycle.view.MainPanel', {
         Ext.applyIf(me, {
             items: [
 				{
-					html:'Product Validator items should be added'
+					xtype:'Lifecycle.ToolBox',
+					region: 'west'
+				},
+				{
+					xtype:'Lifecycle.TabPanel',
+					region: 'center'
 				},
             ]
         });

@@ -35,7 +35,7 @@ Ext.define('ProductCatalog.RelationWindow', {
                 layout:'fit',
                 items: [
                         {
-                        	xtype:'RelationMainPanel'
+                        	xtype:'Relation.MainPanel'
                         }
                 ]
             });

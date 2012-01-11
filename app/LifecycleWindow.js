@@ -35,7 +35,7 @@ Ext.define('ProductCatalog.LifecycleWindow', {
                 layout:'fit',
                 items: [
                         {
-                        	xtype:'LifecycleMainPanel'
+                        	xtype:'Lifecycle.MainPanel'
                         }
                 ]
             });
