@@ -120,8 +120,11 @@ Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
                 {
                 	xtype: 'form',
                     flex:1,
-//                    margin: '0px 0px 0px 10px',
-                    padding: '0px 0px 0px 10px',
+                    frame:true,
+                    defaults:{
+                    	margin: 10,
+                    	labelWidth: 200
+                    },
                     items: [{
                                 xtype: 'label',
                                 text: 'Product Desginer',

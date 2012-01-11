@@ -9,7 +9,11 @@ Ext.define('ProductCatalog.Lifecycle.view.TabPanel_Overview', {
 
         Ext.applyIf(me, {
             items: [
-
+               {
+                    html:'<img src="http://newbiz.uangel.com/pc/wp-content/uploads/2012/01/lifecycle.jpg"/>',
+                    width:438,
+                    height:287
+               }
             ]
         });
         me.callParent(arguments);

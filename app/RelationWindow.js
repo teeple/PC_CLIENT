@@ -25,7 +25,7 @@ Ext.define('ProductCatalog.RelationWindow', {
 
             win = desktop.createWindow({
                 id: 'relation-win',
-                title: 'Product Relation',
+                title: 'Relation Manager',
                 width: 800,
                 height: 600,
 //                iconCls: 'accordion',

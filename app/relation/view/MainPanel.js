@@ -1,13 +1,21 @@
 Ext.define('ProductCatalog.Relation.view.MainPanel', {
     extend: 'Ext.panel.Panel',
+    alias: 'widget.Relation.MainPanel',
 
-    height: 591,
-    width: 716,
+    requires: [
+        'ProductCatalog.Relation.view.ToolBox',
+        'ProductCatalog.Relation.view.SubPanel'
+    ],
+    id: 'RelationMainPanel',
+
+    activeItem: 0,
+
     layout: {
         align: 'stretch',
         type: 'hbox'
     },
-    title: 'Relation Manager',
+    // title: '',
+    titleCollapse: true,
 
     initComponent: function() {
         var me = this;
@@ -15,139 +23,14 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'panel',
-                    width: 226,
-                    layout: {
-                        type: 'accordion'
-                    },
-                    title: 'My Panel',
-                    items: [
-                        {
-                            xtype: 'gridpanel',
-                            title: 'My Grid Panel',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'string',
-                                    text: 'String'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'number',
-                                    text: 'Number'
-                                },
-                                {
-                                    xtype: 'datecolumn',
-                                    dataIndex: 'date',
-                                    text: 'Date'
-                                },
-                                {
-                                    xtype: 'booleancolumn',
-                                    dataIndex: 'bool',
-                                    text: 'Boolean'
-                                }
-                            ],
-                            viewConfig: {
-
-                            }
-                        },
-                        {
-                            xtype: 'gridpanel',
-                            title: 'My Grid Panel',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'string',
-                                    text: 'String'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'number',
-                                    text: 'Number'
-                                },
-                                {
-                                    xtype: 'datecolumn',
-                                    dataIndex: 'date',
-                                    text: 'Date'
-                                },
-                                {
-                                    xtype: 'booleancolumn',
-                                    dataIndex: 'bool',
-                                    text: 'Boolean'
-                                }
-                            ],
-                            viewConfig: {
-
-                            }
-                        },
-                        {
-                            xtype: 'gridpanel',
-                            title: 'My Grid Panel',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'string',
-                                    text: 'String'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'number',
-                                    text: 'Number'
-                                },
-                                {
-                                    xtype: 'datecolumn',
-                                    dataIndex: 'date',
-                                    text: 'Date'
-                                },
-                                {
-                                    xtype: 'booleancolumn',
-                                    dataIndex: 'bool',
-                                    text: 'Boolean'
-                                }
-                            ],
-                            viewConfig: {
-
-                            }
-                        },
-                        {
-                            xtype: 'gridpanel',
-                            title: 'My Grid Panel',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'string',
-                                    text: 'String'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'number',
-                                    text: 'Number'
-                                },
-                                {
-                                    xtype: 'datecolumn',
-                                    dataIndex: 'date',
-                                    text: 'Date'
-                                },
-                                {
-                                    xtype: 'booleancolumn',
-                                    dataIndex: 'bool',
-                                    text: 'Boolean'
-                                }
-                            ],
-                            viewConfig: {
-
-                            }
-                        }
-                    ]
+                    xtype: 'Relation.ToolBox',
+                    flex: 1
                 },
                 {
-                    xtype: 'treepanel',
-                    title: 'My Tree Panel',
-                    flex: 1,
-                    viewConfig: {
-
-                    }
-                }
+                    // xtype: 'Relation.SubPanel',
+                    xtype: 'panel',
+                    flex: 2
+                },
             ]
         });
 

@@ -26,7 +26,7 @@ Ext.define('ProductCatalog.LifecycleWindow', {
             win = desktop.createWindow({
                 id: 'lifecycle-win',
                 title: 'Product Lifecycle',
-                width: 800,
+                width: 900,
                 height: 600,
 //                iconCls: 'accordion',
                 animCollapse: false,
