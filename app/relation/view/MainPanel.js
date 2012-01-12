@@ -10,7 +10,7 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
 
     // activeItem: 0,
     layout: {
-        type: 'hbox'
+        type: 'border'
     },
     // title: '',
     titleCollapse: true,
@@ -24,7 +24,7 @@ Ext.define('ProductCatalog.Relation.view.MainPanel', {
                     region: 'west'
                 },
                 {
-                    xtype: 'Relation.SubPanel',
+                    xtype: 'panel',
                     region: 'center'
                 },
             ]

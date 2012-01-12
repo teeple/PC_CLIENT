@@ -1,10 +1,10 @@
 Ext.define('ProductCatalog.Relation.view.ToolBox_Product', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.Relation.ToolBox_Product',
-    id: 'Relation_ToolBox_Product',
+    id: 'Relation.ToolBox_Product',
 
-    height: '100%',
-    width: '100%',
+//    height: '100%',
+//    width: '100%',
 
     requires:[
         'Ext.ux.LiveSearchGridPanel'
@@ -21,6 +21,7 @@ Ext.define('ProductCatalog.Relation.view.ToolBox_Product', {
             title: 'Product List',
             forceFit: true,
             store: 'ProductCatalog.Relation.store.ToolBox_Product',
+            columnLines: true,
             columns: [
                 {
                     xtype: 'gridcolumn',
@@ -32,10 +33,13 @@ Ext.define('ProductCatalog.Relation.view.ToolBox_Product', {
                         switch(value) {
                             case 'basic':
                                 icon_image = '<img src=http://cdn1.iconfinder.com/data/icons/orb/16/5.png> ' + value;
+                                break;
                             case 'packaged':
                                 icon_image = '<img src=http://cdn1.iconfinder.com/data/icons/fatcow/16x16_0600/package.png> ' + value;
-                            case 'bundle': 
+                                break;
+                            case 'bundle':
                                 icon_image = '<img src=http://cdn1.iconfinder.com/data/icons/basicset/present_16.png> ' + value;
+                                break;
                         }
                         return icon_image;
                     }
@@ -61,7 +65,10 @@ Ext.define('ProductCatalog.Relation.view.ToolBox_Product', {
 
         Ext.applyIf(me, {
             items: [
-                gridPanel
+                    gridPanel
+//				{
+//					html:'hahahaha'
+//				}
             ]
         });
 

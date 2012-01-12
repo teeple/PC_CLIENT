@@ -11,13 +11,14 @@ Ext.define('ProductCatalog.Relation.store.ToolBox_Relation_Exclusive', {
         me.callParent([Ext.apply({
             autoLoad: true,
             storeId: 'ProductCatalog.Relation.store.ToolBox_Relation_Exclusive',
-            proxy: {
-                type: 'rest',
-                url: '/relations.json',
-                reader: {
-                    type: 'json',
-                }
-            },
+//            proxy: {
+//                type: 'rest',
+//                url: '/relations.json',
+//                reader: {
+//                    type: 'json',
+//                }
+//            },
+            proxy:'memory',
             model: 'ProductCatalog.Relation.model.ToolBox_Relation_Exclusive'
         }, cfg)]);
     }

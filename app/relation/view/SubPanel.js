@@ -4,9 +4,9 @@ Ext.define('ProductCatalog.Relation.view.SubPanel', {
     id: 'RelationSubPanel',
 
     requires: [
-        'ProductCatalog.Relation.view.SubPanel_Relation_Hierarchy',
-        'ProductCatalog.Relation.view.SubPanel_Relation_Exclusive',
-        'ProductCatalog.Relation.view.SubPanel_Relation_Product_Promotion',
+//        'ProductCatalog.Relation.view.SubPanel_Relation_Hierarchy',
+//        'ProductCatalog.Relation.view.SubPanel_Relation_Exclusive',
+//        'ProductCatalog.Relation.view.SubPanel_Relation_Product_Promotion',
     ],
 
     initComponent: function() {
@@ -18,7 +18,7 @@ Ext.define('ProductCatalog.Relation.view.SubPanel', {
                 {
                     xtype: 'panel',
                 }
-                */
+
                 {
                     xtype: 'Relation.SubPanel_Relation_Hierarchy'
                 },
@@ -27,7 +27,7 @@ Ext.define('ProductCatalog.Relation.view.SubPanel', {
                 },
                 {
                     xtype: 'Relation.SubPanel_Relation_Product_Promotion'
-                },
+                },*/
             ]
         });
         me.callParent(arguments);
