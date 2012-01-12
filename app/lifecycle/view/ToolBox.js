@@ -21,26 +21,38 @@ Ext.define('ProductCatalog.Lifecycle.view.ToolBox', {
         	groupHeaderTpl: '{[values.rows[0].status]}',
         });
 
+     // create the Grid, see Ext.
+        var gridPanel = Ext.create('Ext.ux.LiveSearchGridPanel', {
+        	collapseTitle: true,
+            forceFit: true,
+            store: 'ProductCatalog.Lifecycle.store.ToolBox',
+            features: [groupingFeature],
+            columnLines: true,
+            columns: [
+	               {
+	                   text: 'Product Name',
+	                   flex: 2,
+	                   dataIndex: 'name'
+	               },
+	               {
+	            	   id:'status',
+	                   dataIndex: 'status',
+	                   hidden: true
+	               }
+	          ],
+            viewConfig: {
+                stripeRows: true,
+                plugins: {
+                    ddGroup: 'ddGroup',
+                    ptype: 'gridviewdragdrop',
+                    enableDrop: false
+                }
+            }
+        });
+
         Ext.applyIf(me, {
             items: [
-               {
-            	   xtype:'gridpanel',
-            	   store: 'ProductCatalog.Lifecycle.store.ToolBox',
-                   features: [groupingFeature],
-                   forceFit: true,
-                   columns: [
-	                   {
-	                       text: 'Name',
-	                       flex: 2,
-	                       dataIndex: 'name'
-	                   },
-	                   {
-	                	   id:'status',
-	                       dataIndex: 'status',
-	                       hidden: true
-	                   }
-                   ],
-               }
+                    gridPanel
             ]
         });
 

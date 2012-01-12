@@ -8,6 +8,7 @@ Ext.define('ProductCatalog.Relation.store.ToolBox_Product', {
     constructor: function(cfg) {
         var me = this;
         cfg = cfg || {};
+
         me.callParent([Ext.apply({
             autoLoad: true,
             storeId: 'ProductCatalog.Relation.store.ToolBox_Product',
@@ -22,3 +23,4 @@ Ext.define('ProductCatalog.Relation.store.ToolBox_Product', {
         }, cfg)]);
     }
 });
+
