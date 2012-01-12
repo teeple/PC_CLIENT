@@ -1,44 +1,17 @@
-Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
+Ext.define('ProductCatalog.Member.view.TabPanel_RolePermission', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.Member.TabPanel_Role',
-    id:'TabPanel_Role',
-    title: 'Role',
+    alias: 'widget.Member.TabPanel_RolePermission',
+    id:'Member.TabPanel_RolePermission',
+    title: 'Role And Permission',
     layout:{
     	type:'hbox'
     },
+    requires:[
+              'ProductCatalog.Member.model.Role'
+    ],
+
     initComponent: function() {
         var me = this;
-
-        Ext.define('ProductCatalog.Member.Role', {
-            extend: 'Ext.data.Model',
-            fields: [
-                {name: 'id'},
-				{name: 'name'},
-				{name: 'description'}
-            ]
-        });
-
-        var myStore = Ext.create('Ext.data.Store', {
-        	proxy:'memory',
-        	model:'ProductCatalog.Member.Role',
-            data: [
-		        {
-		            id: '1',
-		            name: 'admin',
-		            description:'administrator role',
-		        },
-		        {
-		            id: '2',
-		            name: 'operator',
-		            description:'operator role',
-		        },
-		        {
-		            id: '3',
-		            name: 'agent',
-		            description:'agent role',
-		        }
-            ]
-        });
 
 //        var rowEditing = Ext.create('Ext.grid.plugin.RowEditing');
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -47,6 +20,9 @@ Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
         });
 
         Ext.applyIf(me, {
+        	defaults:{
+        		margin: 10
+        	},
             items: [
                 {
                 	xtype: 'gridpanel',
@@ -93,7 +69,8 @@ Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
 	                                  iconCls:'icon-add',
 	                                  handler: function(){
 	                                      // empty record
-	                                	  myStore.insert(0, {});
+	                                	  var store = Ext.ComponentQuery.query('#Member.TabPanel_RolePermission > gridpanel')[0].store;
+	                                	  store.insert(0, {});
 	                                      rowEditing.startEdit(0, 0);
 	                                  }
 	                              },'-',
@@ -104,8 +81,9 @@ Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
 	                                  handler: function() {
 	                                	  var sm = me.items.items[0].getSelectionModel();
 	                                      rowEditing.cancelEdit();
-	                                      myStore.remove(sm.getSelection());
-	                                      if (myStore.getCount() > 0) {
+	                                      var store = Ext.ComponentQuery.query('#Member.TabPanel_RolePermission > gridpanel')[0].store;
+	                                      store.remove(sm.getSelection());
+	                                      if (store.getCount() > 0) {
 	                                          sm.select(0);
 	                                      }
 	                                  }
@@ -113,7 +91,7 @@ Ext.define('ProductCatalog.Member.view.TabPanel_Role', {
 	                          ]
 	                      }
 	                  ],
-	                  store:myStore,
+	                  store:'ProductCatalog.Member.store.Role',
 	                  plugins: [rowEditing],
 
                 },

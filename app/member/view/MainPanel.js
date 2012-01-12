@@ -5,7 +5,7 @@ Ext.define('ProductCatalog.Member.view.MainPanel', {
         'ProductCatalog.Member.view.TabPanel',
     ],
 
-    id:'Member_MainPanel',
+    id:'Member.MainPanel',
 
 //    title: 'Product Validator',
     titleCollapse: true,

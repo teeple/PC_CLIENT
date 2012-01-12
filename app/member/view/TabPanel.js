@@ -1,12 +1,11 @@
 Ext.define('ProductCatalog.Member.view.TabPanel', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.Member.TabPanel',
-    id: 'Member_TabPanel',
+    id: 'Member.TabPanel',
 
     requires: [
         'ProductCatalog.Member.view.TabPanel_User',
-        'ProductCatalog.Member.view.TabPanel_Role',
-        'ProductCatalog.Member.view.TabPanel_Permission',
+        'ProductCatalog.Member.view.TabPanel_RolePermission',
     ],
 
     activeTab: 0,
@@ -20,12 +19,8 @@ Ext.define('ProductCatalog.Member.view.TabPanel', {
                     //xtype: 'tabpanel',
                 },
                 {
-                     xtype: 'Member.TabPanel_Role'
+                     xtype: 'Member.TabPanel_RolePermission'
                     //xtype: 'tabpanel',
-                },
-                {
-                     xtype: 'Member.TabPanel_Permission'
-                   // xtype: 'tabpanel',
                 },
             ],
         });

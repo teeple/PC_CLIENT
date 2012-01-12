@@ -1,50 +1,15 @@
 Ext.define('ProductCatalog.Member.view.TabPanel_User', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.Member.TabPanel_User',
-    id:'TabPanel_User',
+    id:'Member.TabPanel_User',
     title: 'User',
+
+    requires:[
+              'ProductCatalog.Member.model.TabPanel_User',
+    ],
 
     initComponent: function() {
         var me = this;
-
-        Ext.define('ProductCatalog.Member.User', {
-            extend: 'Ext.data.Model',
-            fields: [
-				{name: 'id'},
-				{name: 'name'},
-				{name: 'email'},
-				{name: 'phonenumber'},
-				{name: 'role'},
-            ]
-        });
-
-        var myStore = Ext.create('Ext.data.Store', {
-        	proxy:'memory',
-        	model:'ProductCatalog.Member.User',
-            data: [
-		        {
-		            id: 'realjangsun',
-		            name: 'Sun Jang',
-		            email:'realjangsun@uangel.com',
-		            phonenumber:'821000010001',
-		            role:'administrator',
-		        },
-		        {
-		            id: 'youngmin',
-		            name: 'Youngmin Kim',
-		            email:'youngmin@uangel.com',
-		            phonenumber:'821000010002',
-		            role:'operator',
-		        },
-		        {
-		            id: 'james',
-		            name: 'Jame lee',
-		            email:'jameslee@yourock.com',
-		            phonenumber:'821000010003',
-		            role:'agent',
-		        },
-            ]
-        });
 
 //        var rowEditing = Ext.create('Ext.grid.plugin.RowEditing');
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -53,6 +18,9 @@ Ext.define('ProductCatalog.Member.view.TabPanel_User', {
         });
 
         Ext.applyIf(me, {
+        	defaults:{
+        		margin: 10
+        	},
             items: [
                 {
                 	xtype: 'gridpanel',
@@ -114,7 +82,8 @@ Ext.define('ProductCatalog.Member.view.TabPanel_User', {
 	                                  iconCls:'icon-add',
 	                                  handler: function(){
 	                                      // empty record
-	                                	  myStore.insert(0, {});
+	                                	  var store = Ext.ComponentQuery.query('#Member.TabPanel_User > gridpanel')[0].store;
+	                                	  store.insert(0, {});
 	                                      rowEditing.startEdit(0, 0);
 	                                  }
 	                              },'-',
@@ -126,8 +95,9 @@ Ext.define('ProductCatalog.Member.view.TabPanel_User', {
 	                                  handler: function() {
 	                                	  var sm = me.items.items[0].getSelectionModel();
 	                                      rowEditing.cancelEdit();
-	                                      myStore.remove(sm.getSelection());
-	                                      if (myStore.getCount() > 0) {
+	                                      var store = Ext.ComponentQuery.query('#Member.TabPanel_User > gridpanel')[0].store;
+	                                      store.remove(sm.getSelection());
+	                                      if (store.getCount() > 0) {
 	                                          sm.select(0);
 	                                      }
 	                                  }
@@ -135,7 +105,7 @@ Ext.define('ProductCatalog.Member.view.TabPanel_User', {
 	                          ]
 	                      }
 	                  ],
-	                  store:myStore,
+	                  store:'ProductCatalog.Member.store.TabPanel_User',
 	                  plugins: [rowEditing],
 
                 }
