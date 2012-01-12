@@ -24,8 +24,16 @@ Ext.define('ProductCatalog.Relation.view.ToolBox', {
         Ext.applyIf(me, {
             items: [
                 {
+                    xtype: 'panel',
+                },
+                {
+                    xtype: 'panel',
+                }
+                /*
+                {
                     xtype: 'Relation.ToolBox_Product'
                 },
+                */
                 /*
                 {
                     xtype: 'Relation.ToolBox_Relation_Exclusive'

@@ -43,12 +43,12 @@ Ext.define('ProductCatalog.DesignerWindow', {
                         }
                 ],
                 listeners: {
-                    'activate': function() {
-                    	Ext.getCmp('designer-win').maximize();
-                    },
-                    'afterrender': function() {
-                    	Ext.getCmp('designer-win').maximize();
-                    }
+//                    'activate': function() {
+//                    	Ext.getCmp('designer-win').maximize();
+//                    },
+//                    'afterrender': function() {
+//                    	Ext.getCmp('designer-win').maximize();
+//                    }
                 }
             });
         }

@@ -19,13 +19,37 @@ Ext.define('ProductCatalog.Lifecycle.view.TabPanel_Manager', {
         		margin: 10
         	},
             items: [
-               {
-                   xtype: 'label',
-                   text: 'Status Change History',
-               },
+				{
+				    xtype: 'panel',
+				    flex: 1,
+				    layout: {
+				        align: 'middle',
+				        type: 'hbox'
+				    },
+				    titleCollapse: true,
+				    frame:true,
+				    flex: 1,
+				    items: [
+				        {
+				            xtype: 'combobox',
+				            labelWidth: 150,
+				            fieldLabel: 'Change status to ',
+				            store:'ProductCatalog.Lifecycle.store.Product_Status',
+				            displayField: 'name',
+				            valueField: 'value',
+				            flex: 2
+				        },
+				        {
+				            xtype: 'button',
+				            text: 'Apply',
+				            margin: '0 0 0 10'
+				        }
+				    ]
+				},
                {
             	   xtype:'gridpanel',
             	   store: 'ProductCatalog.Lifecycle.store.TabPanel_Manager_History',
+            	   title:'Status Change History',
                    forceFit: true,
                    flex: 8,
                    columns: [
@@ -51,33 +75,7 @@ Ext.define('ProductCatalog.Lifecycle.view.TabPanel_Manager', {
 	                   },
                    ],
                },
-               {
-                   xtype: 'panel',
-                   flex: 1,
-                   layout: {
-                       align: 'middle',
-                       type: 'hbox'
-                   },
-                   titleCollapse: true,
-                   frame:true,
-                   flex: 1,
-                   items: [
-                       {
-                           xtype: 'combobox',
-                           labelWidth: 150,
-                           fieldLabel: 'Change status to ',
-                           store:'ProductCatalog.Lifecycle.store.Product_Status',
-                           displayField: 'name',
-                           valueField: 'value',
-                           flex: 2
-                       },
-                       {
-                           xtype: 'button',
-                           text: 'Apply',
-                           margin: '0 0 0 10'
-                       }
-                   ]
-               }
+
             ]
         });
         me.callParent(arguments);
